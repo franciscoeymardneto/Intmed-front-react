@@ -17,9 +17,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-body {
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 1rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+#root {
+  height: 100%;
+  padding: 1rem;
 }
