@@ -1,8 +1,14 @@
+import {
+  RouterProvider,
+} from "react-router-dom";
+import router from "./routes/routes";
+import { AuthProvider } from "./contexts/AuthContext";
+
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <AuthProvider>
+      <RouterProvider router={router} fallbackElement={<h1>LALALALLALALALA</h1>} />
+    </AuthProvider>
   )
 }
 
