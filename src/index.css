@@ -1,0 +1,25 @@
+:root {
+  --primary-color: #49B4BB;
+  --font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --text-color: #444444;
+  --background-color: #ffffff;
+
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+}
