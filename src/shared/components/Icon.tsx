@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 type IconProps = {
     $iconName?: string, 
-    $size?: string, 
-    $color?: string
+    $size?: string,
 } & React.HTMLAttributes<HTMLSpanElement>
 
 const StyledIcon = styled.span<IconProps>`
@@ -20,13 +19,12 @@ const StyledIcon = styled.span<IconProps>`
   direction: ltr;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: ${(props) => props.color || 'inherit'};
 `;
 
 
-const Icon: React.FC<IconProps> = ({ $iconName, $size, $color, ...props }) => {
+const Icon: React.FC<IconProps> = ({ $iconName, $size, ...props }) => {
   return (
-    <StyledIcon className="material-icons" $size={$size} $color={$color} {...props}>
+    <StyledIcon className="material-icons" $size={$size} {...props}>
       {$iconName}
     </StyledIcon>
   );
