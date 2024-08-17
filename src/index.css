@@ -36,6 +36,10 @@ body {
 body, input, span, label, button {
   font-family: var(--font-family);
 }
+
+button {
+  max-height: 40px;
+}
 #root {
   height: 100%;
   padding: 1rem;

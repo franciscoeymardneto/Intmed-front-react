@@ -9,7 +9,7 @@ type InputComponentProps = {
 
 const InputComponent = styled.input<InputComponentProps>`
   width: 100%;
-  padding: 16px 8px;
+  padding: 10px 8px;
   font-size: 16px;
 
   color: var(--text-color);

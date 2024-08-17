@@ -7,7 +7,7 @@ const Label = styled.label`
   position: absolute;
   pointer-events: none;
   left: 8px;
-  top: 15px;
+  top: 10px;
   transition: 0.2s ease all;
 `;
 

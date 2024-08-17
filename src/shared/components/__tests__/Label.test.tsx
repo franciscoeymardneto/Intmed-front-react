@@ -19,7 +19,7 @@ describe('Label', () => {
     expect(label).toHaveStyle('position: absolute');
     expect(label).toHaveStyle('pointer-events: none');
     expect(label).toHaveStyle('left: 8px');
-    expect(label).toHaveStyle('top: 15px');
+    expect(label).toHaveStyle('top: 10px');
     expect(label).toHaveStyle('transition: 0.2s ease all');
   });
 
@@ -29,6 +29,6 @@ describe('Label', () => {
 
     const computedStyle = window.getComputedStyle(label);
     expect(computedStyle.left).toBe('8px');
-    expect(computedStyle.top).toBe('15px');
+    expect(computedStyle.top).toBe('10px');
   });
 });

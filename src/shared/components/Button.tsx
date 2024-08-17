@@ -4,7 +4,7 @@ const StyledButton = styled.button`
   background-color: var(--primary-color);
   color: white;
   margin: 8px 4px;
-  padding: 16px 8px;
+  padding: 10px 8px;
   font-size: 16px;
   font-weight: 500;
   border: none;

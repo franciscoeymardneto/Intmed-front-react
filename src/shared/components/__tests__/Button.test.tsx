@@ -17,7 +17,7 @@ describe('Button', () => {
 
         expect(button).toHaveStyle('background-color: ButtonFace');
         expect(button).toHaveStyle('color: rgb(255, 255, 255)');
-        expect(button).toHaveStyle('padding: 16px 8px');
+        expect(button).toHaveStyle('padding: 10px 8px');
         expect(button).toHaveStyle('font-size: 16px');
         expect(button).toHaveStyle('border-radius: 8px');
         expect(button).toHaveStyle('cursor: pointer');
