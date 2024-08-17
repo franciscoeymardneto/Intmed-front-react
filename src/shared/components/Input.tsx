@@ -3,11 +3,11 @@ import ErrorSpan from './ErrorSpan';
 import Label from './Label';
 import React from 'react';
 
-type InputProps = {
-    $hasError?: boolean; // Optional, used only for styling
+type InputComponentProps = {
+    $hasError?: boolean;
   } & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input = styled.input<InputProps>`
+const InputComponent = styled.input<InputComponentProps>`
   width: 100%;
   padding: 16px 8px;
   font-size: 16px;
@@ -45,20 +45,20 @@ const InputWrapper = styled.div`
   margin-bottom: 25px;
 `;
 
-type InputComponentProps = {
+type InputProps = {
     label: string,
     errorMessage?: string
 } & React.InputHTMLAttributes<HTMLInputElement>
 
 
-const InputComponent = React.forwardRef<HTMLInputElement, InputComponentProps>(
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ label, errorMessage, ...props }, ref): JSX.Element => (
         <InputWrapper>
-            <Input ref={ref} $hasError={!!errorMessage} {...props} placeholder='' />
+            <InputComponent ref={ref} $hasError={!!errorMessage} {...props} placeholder='' />
             <Label>{label}</Label>
             <ErrorSpan hidden={!errorMessage}>{errorMessage}</ErrorSpan>
         </InputWrapper>
     )
 );
 
-export default InputComponent;
+export default Input;

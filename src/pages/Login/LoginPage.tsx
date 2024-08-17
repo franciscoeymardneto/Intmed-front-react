@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import InputComponent from '../../shared/components/Input'
-import LogoComponent from '../../shared/components/Logo'
+import Input from '../../shared/components/Input'
+import Logo from '../../shared/components/Logo'
 import './LoginPage.css'
 
 type LoginFormData = {
@@ -21,9 +21,9 @@ const LoginPage: React.FC = (): JSX.Element => {
     return (
         <div className='container'>
             <main>
-                <LogoComponent />
+                <Logo />
                 <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
-                    <InputComponent
+                    <Input
                         type="email"
                         label='Email'
                         {...register('username', {
@@ -35,7 +35,7 @@ const LoginPage: React.FC = (): JSX.Element => {
                         })}
                         errorMessage={errors.username?.message}
                     />
-                    <InputComponent
+                    <Input
                         type="password"
                         label='Senha'
                         {...register('password', {
