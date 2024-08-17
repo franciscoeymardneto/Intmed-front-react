@@ -54,8 +54,14 @@ type InputProps = {
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ label, errorMessage, ...props }, ref): JSX.Element => (
         <InputWrapper>
-            <InputComponent ref={ref} $hasError={!!errorMessage} {...props} placeholder='' />
-            <Label>{label}</Label>
+            <InputComponent 
+                {...props} 
+                ref={ref} 
+                placeholder=''
+                aria-labelledby={props.name} 
+                $hasError={!!errorMessage} 
+            />
+            <Label id={props.name}>{label}</Label>
             <ErrorSpan hidden={!errorMessage}>{errorMessage}</ErrorSpan>
         </InputWrapper>
     )
