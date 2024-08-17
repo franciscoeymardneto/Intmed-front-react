@@ -33,7 +33,7 @@ const InputComponent = styled.input<InputComponentProps>`
   &:not(:placeholder-shown) ~ label {
     top: -8px;
     font-size: 12px;
-    color: ${props => props.$hasError ? ' var(--error)' : ' var(--border-color)'};;
+    color: ${props => props.$hasError ? ' var(--error)' : ' var(--label-text-color)'};;
     background-color: white;
     padding-left: 2px;
     padding-right: 4px;

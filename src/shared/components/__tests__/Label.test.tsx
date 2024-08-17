@@ -13,7 +13,7 @@ describe('Label', () => {
     const { container } = render(<Label>Test Label</Label>);
     const label = container.firstChild as HTMLElement;
 
-    expect(label).toHaveStyle('color: var(--border-color)');
+    expect(label).toHaveStyle('color: var(--label-text-color)');
     expect(label).toHaveStyle('font-size: 16px');
     expect(label).toHaveStyle('font-weight: normal');
     expect(label).toHaveStyle('position: absolute');

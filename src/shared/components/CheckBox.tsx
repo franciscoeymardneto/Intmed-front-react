@@ -24,7 +24,7 @@ const StyledCheckbox = styled.div<StyledCheckboxProps>`
   background: ${(props) => (props.$checked ? 'var(--primary-color)' : 'white')};
   border-radius: 3px;
   transition: all 150ms;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
   cursor: pointer;
 
   ${HiddenCheckbox}:focus + & {
@@ -37,6 +37,7 @@ const StyledCheckbox = styled.div<StyledCheckboxProps>`
 
   ${HiddenCheckbox}:checked + & {
     background: var(--primary-color);
+    border-color: var(--primary-color);
   }
 
 `;
@@ -60,6 +61,7 @@ const CheckBoxLabel = styled.label`
     display: flex;
     align-items: center;
     margin-bottom: 16px;
+    color: var(--label-text-color)
 `
 
 
