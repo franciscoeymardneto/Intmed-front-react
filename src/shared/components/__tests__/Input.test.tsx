@@ -5,18 +5,27 @@ import { describe, it, expect } from 'vitest';
 
 describe('Input', () => {
   it('should render the input with a label', () => {
-    render(<Input label="Test Label" name='test-input'/>);
+    render(<Input label="Test Label" name='test-input' />);
     expect(screen.getByLabelText('Test Label')).toBeInTheDocument();
   });
 
+  it('should apply the correct styles', () => {
+    render(<Input label="Test Label" name='test-input' />);
+    const input = screen.getByPlaceholderText('');
+    expect(input).toHaveStyle('background-color: rgba(0, 0, 0, 0)');
+    expect(input).toHaveStyle('padding: 10px 8px');
+    expect(input).toHaveStyle('font-size: 16px');
+    expect(input).toHaveStyle('border-radius: 5px');
+  });
+
   it('should render the input with the placeholder text when no value is provided', () => {
-    render(<Input label="Test Label"  />);
+    render(<Input label="Test Label" />);
     const input = screen.getByPlaceholderText('');
     expect(input).toBeInTheDocument();
   });
 
   it('should move the label when the input is focused', () => {
-    render(<Input label="Test Label" name='test-input'/>);
+    render(<Input label="Test Label" name='test-input' />);
     const input = screen.getByLabelText('Test Label');
     input.focus()
     const label = screen.getByText('Test Label');
