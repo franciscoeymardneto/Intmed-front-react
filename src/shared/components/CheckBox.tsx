@@ -10,7 +10,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  opacity: 1;
+  opacity: 0;
   width: 1px;
 `;
 
