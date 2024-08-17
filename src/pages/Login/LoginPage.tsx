@@ -2,6 +2,10 @@ import { useForm } from 'react-hook-form';
 import Input from '../../shared/components/Input'
 import Logo from '../../shared/components/Logo'
 import './LoginPage.css'
+import Button from '../../shared/components/Button';
+import Checkbox from '../../shared/components/CheckBox';
+import FlatButton from '../../shared/components/FlatButton';
+import { useNavigate } from 'react-router-dom';
 
 type LoginFormData = {
     username: string
@@ -14,7 +18,13 @@ const LoginPage: React.FC = (): JSX.Element => {
         formState: { errors },
     } = useForm<LoginFormData>();
 
-    const onSubmit = (data: LoginFormData) => {
+    const navigate = useNavigate();
+
+    function handleNavigateToRegister(){
+        navigate('/register')
+    }
+
+    function onSubmit(data: LoginFormData) {
         console.log('Form Data:', data);
     };
 
@@ -43,7 +53,16 @@ const LoginPage: React.FC = (): JSX.Element => {
                         })}
                         errorMessage={errors.password?.message}
                     />
-                    <button type="submit">Login</button>
+                    <div>
+                        <Checkbox
+                            label='Lembrar minha senha'
+                        />
+
+                    </div>
+                    <footer className='login-form-actions'>
+                        <FlatButton type='button' onClick={handleNavigateToRegister}>Criar Conta</FlatButton>
+                        <Button type='submit'>Acessar</Button>
+                    </footer>
                 </form>
 
             </main>
