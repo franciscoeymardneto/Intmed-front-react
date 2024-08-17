@@ -1,5 +1,6 @@
 :root {
   --primary-color: #49B4BB;
+  --primary-color-blush: rgba(73, 180, 187, 0.3);
   --font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   --text-color: #444444;
@@ -31,7 +32,7 @@ body {
   padding: 0;
   flex-direction: column;
 }
-body, input, span, label {
+body, input, span, label, button {
   font-family: var(--font-family);
 }
 #root {
