@@ -3,12 +3,23 @@
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    legacy({
+      targets: ['firefox 47'],
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+      modernPolyfills: true,
+    }),
+  ],
   test: {
     globals: true,
     environment: "jsdom"
-  }
+  },
+  build: {
+    target: 'es2015', 
+  },
 })
