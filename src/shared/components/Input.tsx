@@ -28,21 +28,11 @@ const InputComponent = styled.input<InputComponentProps>`
     color: #999;
     font-size: 16px;
   }
-
-  &:focus ~ label,
-  &:not(:placeholder-shown) ~ label {
-    top: -8px;
-    font-size: 12px;
-    color: ${props => props.$hasError ? ' var(--error)' : ' var(--label-text-color)'};;
-    background-color: white;
-    padding-left: 2px;
-    padding-right: 4px;
-  }
 `;
 
 const InputWrapper = styled.div`
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 `;
 
 type InputProps = {
@@ -54,14 +44,14 @@ type InputProps = {
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ label, errorMessage, ...props }, ref): JSX.Element => (
         <InputWrapper>
+            <Label id={props.name}>{label}</Label>
             <InputComponent 
                 {...props} 
                 ref={ref} 
-                placeholder=''
                 aria-labelledby={props.name} 
                 $hasError={!!errorMessage} 
             />
-            <Label id={props.name}>{label}</Label>
+            
             <ErrorSpan hidden={!errorMessage}>{errorMessage}</ErrorSpan>
         </InputWrapper>
     )

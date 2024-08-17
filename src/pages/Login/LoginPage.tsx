@@ -35,7 +35,8 @@ const LoginPage: React.FC = (): JSX.Element => {
                 <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type="email"
-                        label='Email'
+                        label="Email:"
+                        placeholder="Digite seu Email"
                         {...register('username', {
                             required: 'Email é obrigatório, por favor digite seu email.',
                             pattern: {
@@ -47,7 +48,8 @@ const LoginPage: React.FC = (): JSX.Element => {
                     />
                     <Input
                         type="password"
-                        label='Senha'
+                        placeholder="Digite sua Senha"
+                        label='Senha:'
                         {...register('password', {
                             required: 'Senha é obrigatória, por favor digite sua senha.'
                         })}
