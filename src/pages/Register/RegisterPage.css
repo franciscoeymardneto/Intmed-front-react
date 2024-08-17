@@ -1,0 +1,40 @@
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        color: #444;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+.container main {
+    width: 100%;
+    max-width: 400px;
+}
+
+.container img {
+    width: 180px;
+    margin-bottom: 1rem;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+
+    button {
+        width: 180px;
+    }
+}
