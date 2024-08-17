@@ -1,8 +1,53 @@
+import { useForm } from 'react-hook-form';
+import InputComponent from '../../shared/components/Input'
+import LogoComponent from '../../shared/components/Logo'
+import './LoginPage.css'
+
+type LoginFormData = {
+    username: string
+    password: string
+}
 const LoginPage: React.FC = (): JSX.Element => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<LoginFormData>();
+
+    const onSubmit = (data: LoginFormData) => {
+        console.log('Form Data:', data);
+    };
+
     return (
-        <>
-        <h1>Login papae</h1>
-        </>
+        <div className='container'>
+            <main>
+                <LogoComponent />
+                <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+                    <InputComponent
+                        type="email"
+                        label='Email'
+                        {...register('username', {
+                            required: 'Email é obrigatório, por favor digite seu email.',
+                            pattern: {
+                                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                                message: 'Email inválido, por favor digite um email válido.',
+                            },
+                        })}
+                        errorMessage={errors.username?.message}
+                    />
+                    <InputComponent
+                        type="password"
+                        label='Senha'
+                        {...register('password', {
+                            required: 'Senha é obrigatória, por favor digite sua senha.'
+                        })}
+                        errorMessage={errors.password?.message}
+                    />
+                    <button type="submit">Login</button>
+                </form>
+
+            </main>
+        </div>
     )
 }
 
