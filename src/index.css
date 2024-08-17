@@ -5,6 +5,7 @@
   --text-color: #444444;
   --background-color: #ffffff;
   --border-color: #A8A8A8;
+  --error: #f44336;
 
   font-family: var(--font-family);
   line-height: 1.5;
