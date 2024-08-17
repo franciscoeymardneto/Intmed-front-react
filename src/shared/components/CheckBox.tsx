@@ -61,7 +61,7 @@ const CheckBoxLabel = styled.label`
     display: flex;
     align-items: center;
     margin-bottom: 16px;
-    color: var(--label-text-color)
+    color: var(--label-text-color);
 `
 
 
