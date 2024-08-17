@@ -1,6 +1,13 @@
 import styled from 'styled-components';
+import ErrorSpan from './ErrorSpan';
+import Label from './Label';
+import React from 'react';
 
-const Input = styled.input`
+type InputProps = {
+    $hasError?: boolean;
+  } & React.InputHTMLAttributes<HTMLInputElement>;
+
+const Input = styled.input<InputProps>`
   font-family: 'Roboto', sans-serif;
   width: 100%;
   padding: 16px 8px;
@@ -8,14 +15,14 @@ const Input = styled.input`
 
   color: var(--text-color);
 
-  border: 1px solid var(--border-color);
+  border: 1px solid ${props => props.$hasError ? ' var(--error)' : ' var(--border-color)'};
   border-radius: 5px;
   background-color: transparent;
   box-sizing: border-box;
 
   &:focus {
     outline: none;
-    border: 2px solid var(--primary-color);
+    border: 2px solid ${props => props.$hasError ? ' var(--error)' : ' var(--border-color)'};;
   }
 
   &::placeholder {
@@ -27,39 +34,32 @@ const Input = styled.input`
   &:not(:placeholder-shown) ~ label {
     top: -8px;
     font-size: 12px;
-    color: var(--border-color);
+    color: ${props => props.$hasError ? ' var(--error)' : ' var(--border-color)'};;
     background-color: white;
     padding-left: 2px;
     padding-right: 4px;
   }
 `;
 
-const Label = styled.label`
-  font-family: 'Roboto', sans-serif;
-  color: var(--border-color);
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 8px;
-  top: 15px;
-  transition: 0.2s ease all;
-`;
-
 const InputWrapper = styled.div`
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `;
 
-type InputComponent = {
-    label: string
+type InputComponentProps = {
+    label: string,
+    errorMessage?: string
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-const InputComponent: React.FC<InputComponent> = ({label, ...props}): JSX.Element => (
-  <InputWrapper>
-    <Input {...props} placeholder=''/>
-    <Label>{label}</Label>
-  </InputWrapper>
+
+const InputComponent = React.forwardRef<HTMLInputElement, InputComponentProps>(
+    ({ label, errorMessage, ...props }, ref): JSX.Element => (
+        <InputWrapper>
+            <Input ref={ref} $hasError={!!errorMessage} {...props} placeholder='' />
+            <Label>{label}</Label>
+            <ErrorSpan hidden={!errorMessage}>{errorMessage}</ErrorSpan>
+        </InputWrapper>
+    )
 );
 
 export default InputComponent;
