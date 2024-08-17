@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Label = styled.label`
-  font-family: 'Roboto', sans-serif;
   color: var(--border-color);
   font-size: 16px;
   font-weight: normal;

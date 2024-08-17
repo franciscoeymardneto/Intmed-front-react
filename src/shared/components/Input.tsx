@@ -4,11 +4,10 @@ import Label from './Label';
 import React from 'react';
 
 type InputProps = {
-    $hasError?: boolean;
+    $hasError?: boolean; // Optional, used only for styling
   } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = styled.input<InputProps>`
-  font-family: 'Roboto', sans-serif;
   width: 100%;
   padding: 16px 8px;
   font-size: 16px;

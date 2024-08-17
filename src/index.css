@@ -31,6 +31,9 @@ body {
   padding: 0;
   flex-direction: column;
 }
+body, input, span, label {
+  font-family: var(--font-family);
+}
 #root {
   height: 100%;
   padding: 1rem;
