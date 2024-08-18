@@ -1,5 +1,5 @@
 
-import axios, { AxiosInstance, CancelToken } from "axios"
+import axios, { AxiosInstance, CancelToken, CancelTokenSource } from "axios"
 
 export class HttpService {
   private baseUrl = `${import.meta.env.VITE_BASE_URL}`;
@@ -40,5 +40,9 @@ export class HttpService {
       {
         cancelToken: cancelToken
       })
+  }
+
+  static cancelToken(): CancelTokenSource {
+    return axios.CancelToken.source()
   }
 }
