@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     react(),
     legacy({
-      targets: ['firefox 47'],
+      targets: ['firefox >= 47'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
       modernPolyfills: true,
     }),
