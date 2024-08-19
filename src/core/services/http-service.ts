@@ -1,6 +1,6 @@
 
 import axios, { AxiosInstance, CancelTokenSource } from "axios"
-import { useAuth } from "../../contexts/AuthContext";
+import { AuthContextType } from "../../contexts/AuthContext";
 import { ApiError } from "../errors/api-error";
 
 export class HttpService {
@@ -8,7 +8,7 @@ export class HttpService {
   private headers = { 'Content-Type': 'application/json' }
   private http: AxiosInstance
 
-  constructor() {
+  constructor(private authContext: AuthContextType) {
     this.http = axios.create({
       baseURL: this.baseUrl,
       headers: this.headers
@@ -16,7 +16,7 @@ export class HttpService {
 
 
     this.http.interceptors.request.use(config => {
-      const token = useAuth().getUserSession()?.token;
+      const token = this.authContext.getUserSession()?.token;
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -29,9 +29,8 @@ export class HttpService {
     this.http.interceptors.response.use(response => {
       return response;
     }, error => {
-      console.log(error)
-      // const apiError = new ApiError(error.response.status)
-      return Promise.reject(error);
+      const apiError = new ApiError(error.response.status, Object.values(error.response.data).join())
+      return Promise.reject(apiError);
     });
   }
 
