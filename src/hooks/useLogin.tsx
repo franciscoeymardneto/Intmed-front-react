@@ -5,15 +5,15 @@ import { AuthService } from "../core/services/auth-service"
 import { useToastStack } from "../contexts/ToastContext";
 import { ApiLoginResponse } from "../core/dto/api/login.api.dto";
 import { ApiError } from "../core/errors/api-error";
+import { useAuth } from "../contexts/AuthContext";
 
 type LoginBody = {
     username: string
     password: string
 }
 
-const authService = new AuthService(new HttpService);
-
 export const useLogin = () => {
+    const authService = new AuthService(new HttpService(useAuth()));
     const pushToast = useToastStack()
 
     return useMutation<ApiLoginResponse, ApiError, LoginBody>({

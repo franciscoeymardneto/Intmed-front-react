@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { UserSession } from '../core/models/session';
 
-interface AuthContextType {
+export interface AuthContextType {
   isLoggedIn: boolean
   getUserSession: () => UserSession | null
   setUserSession: (value: UserSession) => void
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
   function getUserSession(): UserSession | null {
-    const session = localStorage.get('session');
+    const session = localStorage.getItem('session');
 
     if (session) {
       return JSON.parse(session)

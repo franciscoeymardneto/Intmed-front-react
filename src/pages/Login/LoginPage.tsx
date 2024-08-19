@@ -6,6 +6,7 @@ import Button from '../../shared/components/Button';
 import Checkbox from '../../shared/components/CheckBox';
 import FlatButton from '../../shared/components/FlatButton';
 import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../../hooks/useLogin';
 
 type LoginFormData = {
     username: string
@@ -20,12 +21,20 @@ const LoginPage: React.FC = (): JSX.Element => {
 
     const navigate = useNavigate();
 
+    const loginMutation = useLogin();
+
     function handleNavigateToRegister(){
         navigate('/register')
     }
 
-    function onSubmit(data: LoginFormData) {
+    async function onSubmit(data: LoginFormData) {
         console.log('Form Data:', data);
+        loginMutation.mutate({
+            password: data.password,
+            username: data.username
+        })
+
+        
     };
 
     return (
@@ -62,8 +71,14 @@ const LoginPage: React.FC = (): JSX.Element => {
 
                     </div>
                     <footer className='login-form-actions'>
-                        <FlatButton type='button' onClick={handleNavigateToRegister}>Criar Conta</FlatButton>
-                        <Button type='submit'>Acessar</Button>
+                        <FlatButton 
+                            type='button' 
+                            onClick={handleNavigateToRegister}
+                            disabled={loginMutation.isLoading}
+                        >
+                            Criar Conta
+                        </FlatButton>
+                        <Button type='submit' disabled={loginMutation.isLoading}>Acessar</Button>
                     </footer>
                 </form>
 
