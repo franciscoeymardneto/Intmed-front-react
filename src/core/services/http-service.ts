@@ -1,5 +1,7 @@
 
 import axios, { AxiosInstance, CancelToken, CancelTokenSource } from "axios"
+import { useAuth } from "../../contexts/AuthContext";
+import { ApiError } from "../errors/api-error";
 
 export class HttpService {
   private baseUrl = `${import.meta.env.VITE_BASE_URL}`;
@@ -11,6 +13,26 @@ export class HttpService {
       baseURL: this.baseUrl,
       headers: this.headers
     })
+
+
+    this.http.interceptors.request.use(config => {
+      const token = useAuth().getUserSession()?.token;
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
+      return config;
+    }, error => {
+      return Promise.reject(error);
+    });
+
+    this.http.interceptors.response.use(response => {
+      return response;
+    }, error => {
+      console.log(error)
+      // const apiError = new ApiError(error.response.status)
+      return Promise.reject(error);
+    });
   }
 
   async post<T>(path: string, body: any, cancelToken: CancelToken): Promise<T> {
