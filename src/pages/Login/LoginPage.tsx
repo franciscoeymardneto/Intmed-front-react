@@ -1,11 +1,16 @@
 import { useForm } from 'react-hook-form';
 import Input from '../../shared/components/Input'
 import Logo from '../../shared/components/Logo'
-import './LoginPage.css'
 import Button from '../../shared/components/Button/Button';
 import Checkbox from '../../shared/components/Checkbox';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../hooks/useLogin';
+import {
+    Container,
+    LoginForm,
+    LoginFormActions,
+    Main
+} from './styles'
 
 type LoginFormData = {
     username: string
@@ -34,10 +39,10 @@ const LoginPage: React.FC = (): JSX.Element => {
     };
 
     return (
-        <div className='container'>
-            <main>
+        <Container>
+            <Main>
                 <Logo />
-                <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+                <LoginForm onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type="email"
                         label="Email:"
@@ -66,7 +71,7 @@ const LoginPage: React.FC = (): JSX.Element => {
                         />
 
                     </div>
-                    <footer className='login-form-actions'>
+                    <LoginFormActions>
                         <Button 
                             type='button' 
                             onClick={handleNavigateToRegister}
@@ -75,11 +80,11 @@ const LoginPage: React.FC = (): JSX.Element => {
                             Criar Conta
                         </Button>
                         <Button type='submit' $variant='flat' disabled={loginMutation.isLoading}>Acessar</Button>
-                    </footer>
-                </form>
+                    </LoginFormActions>
+                </LoginForm>
 
-            </main>
-        </div>
+            </Main>
+        </Container>
     )
 }
 
