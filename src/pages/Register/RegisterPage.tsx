@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import Input from "../../shared/components/Input"
 import Logo from "../../shared/components/Logo"
-import "./RegisterPage.css"
 import Button from "../../shared/components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useRegister } from "../../hooks/useRegister";
+import { Container, Main, RegisterForm, RegisterFormActions, RegisterFormTitle } from "./styles";
 
 type RegisterFormData = {
     first_name: string,
@@ -37,11 +37,11 @@ const RegisterPage: React.FC = (): JSX.Element => {
     };
 
     return (
-        <div className="container">
-            <main>
+        <Container>
+            <Main>
                 <Logo />
-                <p>Crie sua conta</p>
-                <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
+                <RegisterFormTitle>Crie sua conta</RegisterFormTitle>
+                <RegisterForm onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type="text"
                         label="Nome"
@@ -89,7 +89,7 @@ const RegisterPage: React.FC = (): JSX.Element => {
                         errorMessage={errors.password2?.message}
                     />
 
-                    <footer className="register-form-actions">
+                    <RegisterFormActions>
                         <Button 
                             type="button" 
                             onClick={handleNavigateToLogin}
@@ -98,11 +98,11 @@ const RegisterPage: React.FC = (): JSX.Element => {
                             Cancelar
                         </Button>
                         <Button type="submit" $variant="flat" disabled={registerMutation.isLoading}>Confirmar</Button>
-                    </footer>
-                </form>
+                    </RegisterFormActions>
+                </RegisterForm>
 
-            </main>
-        </div>
+            </Main>
+        </Container>
     )
 }
 
