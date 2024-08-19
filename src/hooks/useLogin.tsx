@@ -3,23 +3,18 @@ import { useMutation } from "react-query"
 import { HttpService } from "../core/services/http-service"
 import { AuthService } from "../core/services/auth-service"
 import { useToastStack } from "../contexts/ToastContext";
-import { ApiLoginResponse } from "../core/dto/api/login.api.dto";
+import { ApiLoginResponse, ApiLoginResquest } from "../core/dto/api/login.api.dto";
 import { ApiError } from "../core/errors/api-error";
 import { useAuth } from "../contexts/AuthContext";
-
-type LoginBody = {
-    username: string
-    password: string
-}
 
 export const useLogin = () => {
     const authContext = useAuth()
     const authService = new AuthService(new HttpService(authContext));
     const pushToast = useToastStack()
 
-    return useMutation<ApiLoginResponse, ApiError, LoginBody>({
+    return useMutation<ApiLoginResponse, ApiError, ApiLoginResquest>({
         mutationFn: async (body) => {
-            return await authService.login(body.username, body.password)
+            return await authService.login(body)
         },
         onSuccess: (data) => {
             pushToast(`Bem vindo(a) ${data.username}`,{

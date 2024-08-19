@@ -1,15 +1,15 @@
 import { HttpService } from './http-service';
 import { Consult } from '../models/consult';
 import { FetchConsultsApiResponse, ConsultApiResponseDTO, CreateConsultApi, CreateConsultApiResponse } from '../dto/api/consult.api.dto';
-import { useAuth } from '../../contexts/AuthContext';
+import { AuthContextType } from '../../contexts/AuthContext';
 
 export class ConsultService {
 
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService, private authContext: AuthContextType) {
   }
 
   async list(): Promise<Consult[]> {
-    let clientId = useAuth().getUserSession()?.userid
+    const clientId = this.authContext.getUserSession()?.userid
 
     const response = await this.http.get<ConsultApiResponseDTO[]>(`/consultas?clientId=${clientId}`)
 
@@ -21,14 +21,14 @@ export class ConsultService {
   }
 
   async create(params: CreateConsultApi): Promise<Consult> {
-    let clientId = useAuth().getUserSession()?.userid
+    const clientId = this.authContext.getUserSession()?.userid
 
-    let body = {
+    const body = {
       ...params,
       cliente_id: clientId
     }
 
-    const response = await this.http.post<ConsultApiResponseDTO>(`/consultas`, body)
+    const response = await this.http.post<CreateConsultApi,ConsultApiResponseDTO>(`/consultas`, body)
 
     return new CreateConsultApiResponse(response).consulta
   }

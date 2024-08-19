@@ -34,7 +34,7 @@ export class HttpService {
     });
   }
 
-  async post<T>(path: string, body: any): Promise<T> {
+  async post<K,T>(path: string, body: K): Promise<T> {
     const response = await this.http.post<T>(
       `${this.baseUrl}${path}`,
       body)

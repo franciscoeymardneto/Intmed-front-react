@@ -5,6 +5,6 @@ export class RegisterService {
   }
 
   async register(body: ApiRegisterRequest): Promise<void> {
-    await this.http.post<ApiRegisterResponse>('/users', body)
+    await this.http.post<ApiRegisterRequest,ApiRegisterResponse>('/users', body)
   }
 }
