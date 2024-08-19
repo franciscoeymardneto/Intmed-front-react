@@ -1,5 +1,5 @@
 
-import axios, { AxiosInstance, CancelToken, CancelTokenSource } from "axios"
+import axios, { AxiosInstance, CancelTokenSource } from "axios"
 import { useAuth } from "../../contexts/AuthContext";
 import { ApiError } from "../errors/api-error";
 
@@ -35,33 +35,24 @@ export class HttpService {
     });
   }
 
-  async post<T>(path: string, body: any, cancelToken: CancelToken): Promise<T> {
+  async post<T>(path: string, body: any): Promise<T> {
     const response = await this.http.post<T>(
       `${this.baseUrl}${path}`,
-      body,
-      {
-        cancelToken: cancelToken
-      })
+      body)
 
     return response.data
   }
 
-  async get<T>(path: string, cancelToken: CancelToken): Promise<T> {
+  async get<T>(path: string): Promise<T> {
     const response = await this.http.get<T>(
-      `${this.baseUrl}${path}`,
-      {
-        cancelToken: cancelToken
-      })
+      `${this.baseUrl}${path}`)
 
     return response.data
   }
 
-  async delete(path: string, cancelToken: CancelToken): Promise<void> {
+  async delete(path: string): Promise<void> {
     await this.http.delete(
-      `${this.baseUrl}${path}`,
-      {
-        cancelToken: cancelToken
-      })
+      `${this.baseUrl}${path}`)
   }
 
   static cancelToken(): CancelTokenSource {
