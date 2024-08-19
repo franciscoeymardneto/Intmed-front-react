@@ -8,15 +8,22 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
+import { ThemeContextProvider } from './contexts/ThemeContext';
+import GlobalStyle from './styles/global';
 
 const queryClient = new QueryClient()
 
+Mudar variaveis de cor dos themas e estilo global para ficar fit com o mockup
+Eliminar .css files
 function App() {
   return (
-    <QueryClientProvider  client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <ToastProvider>
         <AuthProvider>
-          <RouterProvider router={router} fallbackElement={<h1>LALALALLALALALA</h1>} />
+          <ThemeContextProvider>
+            <GlobalStyle />
+            <RouterProvider router={router} fallbackElement={<h1>LALALALLALALALA</h1>} />
+          </ThemeContextProvider>
         </AuthProvider>
       </ToastProvider>
     </QueryClientProvider>
