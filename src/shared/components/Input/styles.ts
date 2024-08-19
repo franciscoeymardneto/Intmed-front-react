@@ -4,7 +4,7 @@ import { InputComponentProps } from "./types";
 export const InputComponent = styled.input<InputComponentProps>`
   width: 100%;
   padding: 10px 8px;
-  font-size: 16px;
+  font-size: ${({theme}) => theme.fontSizes.medium};
 
   color: ${({theme}) => theme.colors.text};
 
@@ -20,11 +20,11 @@ export const InputComponent = styled.input<InputComponentProps>`
 
   &::placeholder {
     color: ${({theme}) => theme.colors.placeholder};
-    font-size: 16px;
+    font-size: ${({theme}) => theme.fontSizes.medium};
   }
 `;
 
 export const InputWrapper = styled.div`
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 `;

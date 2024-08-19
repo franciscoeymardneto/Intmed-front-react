@@ -9,7 +9,7 @@ export const lightTheme: DefaultTheme = {
     primary_500: '#a2d5d9',
     primary_600: '#b5dee0',
     secondary: '#ffffff',
-    background: '#F4F4F9',
+    background: '#ffffff',
     text: '#444444',
     label_text: '#A8A8A8',
     placeholder: '#999',
@@ -38,10 +38,17 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   colors: {
-    primary: '#49B4BB',
-    secondary: '#FF6F61',
+    primary: '#49b4bb',
+    primary_200: '#63bcc2',
+    primary_300: '#79c5ca',
+    primary_400: '#8ecdd1',
+    primary_500: '#a2d5d9',
+    primary_600: '#b5dee0',
+    secondary: '#ffffff',
     background: '#181818',
     text: '#FFFFFF',
+    label_text: '#A8A8A8',
+    placeholder: '#999',
     border: '#333333',
     success: '#4CAF50',
     warning: '#FFC107',

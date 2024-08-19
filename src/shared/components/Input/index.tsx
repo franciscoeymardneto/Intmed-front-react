@@ -2,13 +2,7 @@ import ErrorSpan from '../ErrorSpan';
 import Label from '../Label';
 import React from 'react';
 import { InputComponent, InputWrapper } from './styles';
-
-
-type InputProps = {
-    label: string,
-    errorMessage?: string
-} & React.InputHTMLAttributes<HTMLInputElement>
-
+import { InputProps } from './types';
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ label, errorMessage, ...props }, ref): JSX.Element => (
