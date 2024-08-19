@@ -2,9 +2,8 @@ import { useForm } from 'react-hook-form';
 import Input from '../../shared/components/Input'
 import Logo from '../../shared/components/Logo'
 import './LoginPage.css'
-import Button from '../../shared/components/Button';
-import Checkbox from '../../shared/components/CheckBox';
-import FlatButton from '../../shared/components/FlatButton';
+import Button from '../../shared/components/Button/Button';
+import Checkbox from '../../shared/components/Checkbox';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../hooks/useLogin';
 
@@ -68,14 +67,14 @@ const LoginPage: React.FC = (): JSX.Element => {
 
                     </div>
                     <footer className='login-form-actions'>
-                        <FlatButton 
+                        <Button 
                             type='button' 
                             onClick={handleNavigateToRegister}
                             disabled={loginMutation.isLoading}
                         >
                             Criar Conta
-                        </FlatButton>
-                        <Button type='submit' disabled={loginMutation.isLoading}>Acessar</Button>
+                        </Button>
+                        <Button type='submit' $variant='flat' disabled={loginMutation.isLoading}>Acessar</Button>
                     </footer>
                 </form>
 

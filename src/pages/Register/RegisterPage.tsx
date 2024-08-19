@@ -2,8 +2,7 @@ import { useForm } from "react-hook-form";
 import Input from "../../shared/components/Input"
 import Logo from "../../shared/components/Logo"
 import "./RegisterPage.css"
-import Button from "../../shared/components/Button";
-import FlatButton from "../../shared/components/FlatButton";
+import Button from "../../shared/components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useRegister } from "../../hooks/useRegister";
 
@@ -91,14 +90,14 @@ const RegisterPage: React.FC = (): JSX.Element => {
                     />
 
                     <footer className="register-form-actions">
-                        <FlatButton 
+                        <Button 
                             type="button" 
                             onClick={handleNavigateToLogin}
                             disabled={registerMutation.isLoading}
                         >
                             Cancelar
-                        </FlatButton>
-                        <Button type="submit" disabled={registerMutation.isLoading}>Confirmar</Button>
+                        </Button>
+                        <Button type="submit" $variant="flat" disabled={registerMutation.isLoading}>Confirmar</Button>
                     </footer>
                 </form>
 

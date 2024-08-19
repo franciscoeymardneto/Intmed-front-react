@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Button from '../Button';
+import Button from '../Button/Button';
 import { describe, it, expect, vi } from 'vitest';
 
 describe('Button', () => {
