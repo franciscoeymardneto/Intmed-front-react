@@ -1,8 +1,11 @@
+import Header from "../../shared/components/Header"
+import { Container } from "./styles"
+
 const HomePage: React.FC = (): JSX.Element => {
     return (
-        <>
-        <h1>Home papae</h1>
-        </>
+        <Container>
+            <Header/>
+        </Container>
     )
 }
 
