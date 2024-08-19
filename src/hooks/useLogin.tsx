@@ -13,7 +13,8 @@ type LoginBody = {
 }
 
 export const useLogin = () => {
-    const authService = new AuthService(new HttpService(useAuth()));
+    const authContext = useAuth()
+    const authService = new AuthService(new HttpService(authContext));
     const pushToast = useToastStack()
 
     return useMutation<ApiLoginResponse, ApiError, LoginBody>({
@@ -24,6 +25,8 @@ export const useLogin = () => {
             pushToast(`Bem vindo(a) ${data.username}`,{
                 type: 'success',
             });
+
+            authContext.setUserSession(data)
         },
         onError: (error) => {
             pushToast(`Erro ao fazer login: ${error.message}`,{
