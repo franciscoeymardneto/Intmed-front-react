@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../styles/theme';
 
@@ -46,4 +46,13 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
       <ThemeProvider theme={themeMode}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
+};
+
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeContextProvider');
+  }
+  return context;
 };
