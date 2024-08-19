@@ -21,6 +21,7 @@ export const LoginFormTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${({theme}) => theme.colors.label_text};
 `;
 
 export const LoginForm = styled.form`

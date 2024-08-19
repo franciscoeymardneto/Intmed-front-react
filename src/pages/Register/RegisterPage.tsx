@@ -48,7 +48,7 @@ const RegisterPage: React.FC = (): JSX.Element => {
         <Container>
             <Main>
             <RegisterFormTitleContainer>
-                    <Logo />
+                    <Logo size="big"/>
                     <ThemeSwitcher />
                 </RegisterFormTitleContainer>
                 <RegisterFormTitle>Crie sua conta</RegisterFormTitle>

@@ -44,7 +44,7 @@ const LoginPage: React.FC = (): JSX.Element => {
         <Container>
             <Main>
                 <LoginFormTitleContainer>
-                    <Logo />
+                    <Logo size='big'/>
                     <ThemeSwitcher />
                 </LoginFormTitleContainer>
                 <LoginForm onSubmit={handleSubmit(onSubmit)}>

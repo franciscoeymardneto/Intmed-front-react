@@ -22,6 +22,7 @@ export const RegisterFormTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${({theme}) => theme.colors.label_text};
 `;
 
 export const RegisterFormTitle = styled.p`
