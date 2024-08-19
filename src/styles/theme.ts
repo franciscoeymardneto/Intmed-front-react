@@ -2,11 +2,18 @@ import { DefaultTheme } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
   colors: {
-    primary: '#49B4BB',
-    secondary: '#FF6F61',
+    primary: '#49b4bb',
+    primary_200: '#63bcc2',
+    primary_300: '#79c5ca',
+    primary_400: '#8ecdd1',
+    primary_500: '#a2d5d9',
+    primary_600: '#b5dee0',
+    secondary: '#ffffff',
     background: '#F4F4F9',
-    text: '#333333',
-    border: '#E0E0E0',
+    text: '#444444',
+    label_text: '#A8A8A8',
+    placeholder: '#999',
+    border: '#A8A8A8',
     success: '#4CAF50',
     warning: '#FFC107',
     danger: '#F44336',

@@ -1,12 +1,17 @@
-// src/context/ThemeContext.tsx
 import React, { createContext, useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../styles/theme';
 
 const getInitialTheme = () => {
-  if (typeof window !== 'undefined' && window.matchMedia) {
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDarkMode ? 'dark' : 'light';
+  if (typeof window !== 'undefined') {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    if (window.matchMedia) {
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return prefersDarkMode ? 'dark' : 'light';
+    }
   }
   return 'light';
 };
@@ -18,6 +23,10 @@ export const ThemeContext = createContext({
 
 export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

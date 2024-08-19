@@ -13,8 +13,6 @@ import GlobalStyle from './styles/global';
 
 const queryClient = new QueryClient()
 
-Mudar variaveis de cor dos themas e estilo global para ficar fit com o mockup
-Eliminar .css files
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
