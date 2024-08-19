@@ -15,12 +15,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   min-width: 64px;
 
   &:hover {
-    background-color: ${({theme}) => theme.colors.primary_600};
-
-    &:disabled {
-        background-color: ${({theme}) => theme.colors.background};
-        opacity: 0.8;
-    }
+    opacity: 0.8;
   }
 
   &:active {
@@ -28,7 +23,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   }
 
   &:disabled {
-    color: rgba(0, 0, 0, 0.26);
+    opacity: 0.5;
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -38,14 +33,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
     css`
         background-color: ${theme.colors.background};
         color: ${theme.colors.primary};
-        &:active {
-            opacity: 0.5;
-        }
         &:disabled {
             background-color: rgba(0, 0, 0, 0.12);
-            color: rgba(0, 0, 0, 0.26);
-            box-shadow: none;
-            cursor: not-allowed;
         }
     `}
 `;

@@ -3,11 +3,7 @@ import { DefaultTheme } from 'styled-components';
 export const lightTheme: DefaultTheme = {
   colors: {
     primary: '#49b4bb',
-    primary_200: '#63bcc2',
-    primary_300: '#79c5ca',
-    primary_400: '#8ecdd1',
-    primary_500: '#a2d5d9',
-    primary_600: '#b5dee0',
+    primary_blush: '#b5dee0',
     secondary: '#ffffff',
     background: '#ffffff',
     text: '#444444',
@@ -25,7 +21,7 @@ export const lightTheme: DefaultTheme = {
   fontSizes: {
     small: '12px',
     medium: '16px',
-    large: '20px',
+    large: '18px',
     xlarge: '24px',
   },
   spacing: (factor: number) => `${factor * 8}px`,
@@ -39,11 +35,7 @@ export const lightTheme: DefaultTheme = {
 export const darkTheme: DefaultTheme = {
   colors: {
     primary: '#49b4bb',
-    primary_200: '#63bcc2',
-    primary_300: '#79c5ca',
-    primary_400: '#8ecdd1',
-    primary_500: '#a2d5d9',
-    primary_600: '#b5dee0',
+    primary_blush: '#6e8486',
     secondary: '#ffffff',
     background: '#181818',
     text: '#FFFFFF',
@@ -61,7 +53,7 @@ export const darkTheme: DefaultTheme = {
   fontSizes: {
     small: '12px',
     medium: '16px',
-    large: '20px',
+    large: '18px',
     xlarge: '24px',
   },
   spacing: (factor: number) => `${factor * 8}px`,

@@ -24,7 +24,7 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   cursor: pointer;
 
   ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 5px ${({theme}) =>theme.colors.primary_600}
+    box-shadow: 0 0 0 5px ${({theme}) =>theme.colors.primary_blush}
   }
 
   ${HiddenCheckbox}:checked + & {
