@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Label = styled.label`
-  color: var(--label-text-color);
-  font-size: 12px;
+  color: ${({theme}) => theme.colors.label_text};
+  font-size: ${({theme}) => theme.fontSizes.small};
   font-weight: normal;
 
 `;
