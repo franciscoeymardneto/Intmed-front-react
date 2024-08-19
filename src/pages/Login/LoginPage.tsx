@@ -28,13 +28,10 @@ const LoginPage: React.FC = (): JSX.Element => {
     }
 
     async function onSubmit(data: LoginFormData) {
-        console.log('Form Data:', data);
         loginMutation.mutate({
             password: data.password,
             username: data.username
         })
-
-        
     };
 
     return (

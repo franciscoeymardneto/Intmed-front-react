@@ -5,6 +5,7 @@ import "./RegisterPage.css"
 import Button from "../../shared/components/Button";
 import FlatButton from "../../shared/components/FlatButton";
 import { useNavigate } from "react-router-dom";
+import { useRegister } from "../../hooks/useRegister";
 
 type RegisterFormData = {
     first_name: string,
@@ -20,6 +21,8 @@ const RegisterPage: React.FC = (): JSX.Element => {
         formState: { errors },
     } = useForm<RegisterFormData>();
 
+    const registerMutation = useRegister();
+
     const navigate = useNavigate();
 
     function handleNavigateToLogin() {
@@ -27,7 +30,11 @@ const RegisterPage: React.FC = (): JSX.Element => {
     }
 
     function onSubmit(data: RegisterFormData) {
-        console.log("Form Data:", data);
+        registerMutation.mutate(data,{
+            onSuccess: () => {
+                handleNavigateToLogin()
+            }
+        })
     };
 
     return (
@@ -84,8 +91,14 @@ const RegisterPage: React.FC = (): JSX.Element => {
                     />
 
                     <footer className="register-form-actions">
-                        <FlatButton type="button" onClick={handleNavigateToLogin}>Cancelar</FlatButton>
-                        <Button type="submit">Confirmar</Button>
+                        <FlatButton 
+                            type="button" 
+                            onClick={handleNavigateToLogin}
+                            disabled={registerMutation.isLoading}
+                        >
+                            Cancelar
+                        </FlatButton>
+                        <Button type="submit" disabled={registerMutation.isLoading}>Confirmar</Button>
                     </footer>
                 </form>
 
