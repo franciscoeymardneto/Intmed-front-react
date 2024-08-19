@@ -17,6 +17,12 @@ export const Main = styled.main`
   }
 `;
 
+export const LoginFormTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;

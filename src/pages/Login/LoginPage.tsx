@@ -9,8 +9,10 @@ import {
     Container,
     LoginForm,
     LoginFormActions,
+    LoginFormTitleContainer,
     Main
 } from './styles'
+import ThemeSwitcher from '../../shared/components/ThemeSwitcher';
 
 type LoginFormData = {
     username: string
@@ -27,7 +29,7 @@ const LoginPage: React.FC = (): JSX.Element => {
 
     const loginMutation = useLogin();
 
-    function handleNavigateToRegister(){
+    function handleNavigateToRegister() {
         navigate('/register')
     }
 
@@ -41,7 +43,10 @@ const LoginPage: React.FC = (): JSX.Element => {
     return (
         <Container>
             <Main>
-                <Logo />
+                <LoginFormTitleContainer>
+                    <Logo />
+                    <ThemeSwitcher />
+                </LoginFormTitleContainer>
                 <LoginForm onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type="email"
@@ -72,8 +77,8 @@ const LoginPage: React.FC = (): JSX.Element => {
 
                     </div>
                     <LoginFormActions>
-                        <Button 
-                            type='button' 
+                        <Button
+                            type='button'
                             onClick={handleNavigateToRegister}
                             disabled={loginMutation.isLoading}
                         >

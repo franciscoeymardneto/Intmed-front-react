@@ -17,6 +17,13 @@ export const Main = styled.main`
   }
 `;
 
+export const RegisterFormTitleContainer = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const RegisterFormTitle = styled.p`
     font-weight: 700;
     font-size: ${({theme}) => theme.fontSizes.large};;

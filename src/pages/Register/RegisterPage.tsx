@@ -4,7 +4,15 @@ import Logo from "../../shared/components/Logo"
 import Button from "../../shared/components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useRegister } from "../../hooks/useRegister";
-import { Container, Main, RegisterForm, RegisterFormActions, RegisterFormTitle } from "./styles";
+import { 
+    Container,
+    Main, 
+    RegisterForm, 
+    RegisterFormActions, 
+    RegisterFormTitle,
+    RegisterFormTitleContainer
+} from "./styles";
+import ThemeSwitcher from "../../shared/components/ThemeSwitcher";
 
 type RegisterFormData = {
     first_name: string,
@@ -39,7 +47,10 @@ const RegisterPage: React.FC = (): JSX.Element => {
     return (
         <Container>
             <Main>
-                <Logo />
+            <RegisterFormTitleContainer>
+                    <Logo />
+                    <ThemeSwitcher />
+                </RegisterFormTitleContainer>
                 <RegisterFormTitle>Crie sua conta</RegisterFormTitle>
                 <RegisterForm onSubmit={handleSubmit(onSubmit)}>
                     <Input
