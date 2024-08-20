@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Table = styled.table`
     width: 100%;
     padding: 0 16px;
+    border-spacing: 0;
     & th {
         color: ${({theme}) => theme.colors.label_text};
         font-size: 0.87rem;
@@ -12,9 +13,34 @@ export const Table = styled.table`
     & td {
         color: ${({theme}) => theme.colors.text};
         font-size: 0.9rem;
+
+        & button {
+            max-width: 150px;
+            max-height: 24px;
+            padding: 16px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & div {
+                margin: 0
+            }
+
+            & span {
+                margin-right: 0.8rem;
+            }
+    }
+    } 
+
+    & th, td {
+        padding: 0 8px;
     }
 
     & tr:nth-child(even) {
-        background-color: #F8F8F8;
+        background-color: ${({theme}) => theme.colors.table_stripe};
+
+        & button {
+            background-color: ${({theme}) => theme.colors.table_stripe};
+        }
     }
 `

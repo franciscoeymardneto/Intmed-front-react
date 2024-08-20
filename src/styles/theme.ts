@@ -14,6 +14,9 @@ export const lightTheme: DefaultTheme = {
     warning: '#FFC107',
     danger: '#F44336',
     info: '#2196F3',
+    table_stripe: '#F8F8F8',
+    table_shadow: '#00000040'
+    
   },
   fonts: {
     main: "'Roboto', sans-serif",
@@ -46,6 +49,8 @@ export const darkTheme: DefaultTheme = {
     warning: '#FFC107',
     danger: '#F44336',
     info: '#2196F3',
+    table_stripe: '#1a2021',
+    table_shadow: '#FFFFFF33'
   },
   fonts: {
     main: "'Roboto', sans-serif",

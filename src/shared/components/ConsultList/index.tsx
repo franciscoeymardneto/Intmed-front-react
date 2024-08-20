@@ -1,5 +1,6 @@
 import { useConsult } from '../../../hooks/useConsult'
 import Button from '../Button/Button'
+import Icon from '../Icon'
 import {
     Table
 } from './styles'
@@ -34,7 +35,10 @@ const ConsultList: React.FC = (): JSX.Element => {
                             <td>{item.date}</td>
                             <td>{item.hour}</td>
                             <td>
-                                <Button>Desmarcar</Button>
+                                <Button>
+                                    <Icon $iconName="close" $size='15px'/>
+                                    Desmarcar
+                                </Button>
                             </td>
                         </tr>
                     ))
