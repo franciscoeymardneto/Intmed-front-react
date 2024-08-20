@@ -17,7 +17,7 @@ export const useConsult = () => {
     const httpService = new HttpService(authContext)
     const consultService = new ConsultService(httpService, authContext);
 
-    const fetchConsults = useQuery<unknown, ApiError, Consult[]>({
+    const fetchConsults = () => useQuery<unknown, ApiError, Consult[]>({
         enabled: !!userId,
         queryKey: [QueryConsultKey, { clientId: userId }],
         queryFn: ({ signal }) => {
@@ -33,7 +33,7 @@ export const useConsult = () => {
         },
     });
 
-    const createConsult = useMutation<Consult, ApiError, CreateConsultApi>({
+    const createConsult = () => useMutation<Consult, ApiError, CreateConsultApi>({
         mutationFn: async (body) => {
             return await consultService.create(body)
         },
@@ -52,7 +52,7 @@ export const useConsult = () => {
     })
 
 
-    const deleteConsult = useMutation<void, Error, number>({
+    const deleteConsult = () => useMutation<void, Error, number>({
         mutationFn: async (consultId) => {
             return await consultService.delete(consultId)
         },
