@@ -1,7 +1,6 @@
 import {
   RouterProvider,
 } from 'react-router-dom';
-import router from './routes/routes';
 import { AuthProvider } from './contexts/AuthContext';
 import { ToastProvider } from './contexts/ToastContext';
 import {
@@ -9,6 +8,8 @@ import {
   QueryClientProvider,
 } from 'react-query'
 import { ThemeContextProvider } from './contexts/ThemeContext';
+import { ModalProvider } from 'styled-react-modal'
+import router from './routes/routes';
 import GlobalStyle from './styles/global';
 
 const queryClient = new QueryClient()
@@ -18,10 +19,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ToastProvider>
         <AuthProvider>
-          <ThemeContextProvider>
-            <GlobalStyle />
-            <RouterProvider router={router} fallbackElement={<h1>LALALALLALALALA</h1>} />
-          </ThemeContextProvider>
+          <ModalProvider>
+            <ThemeContextProvider>
+              <GlobalStyle />
+              <RouterProvider router={router}/>
+            </ThemeContextProvider>
+          </ModalProvider>
         </AuthProvider>
       </ToastProvider>
     </QueryClientProvider>

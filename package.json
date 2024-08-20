@@ -20,7 +20,8 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.26.1",
     "react-toastify": "^10.0.5",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "styled-react-modal": "^3.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -29,6 +30,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/styled-react-modal": "^1.2.5",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
