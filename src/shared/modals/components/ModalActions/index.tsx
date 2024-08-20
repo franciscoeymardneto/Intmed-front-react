@@ -18,7 +18,7 @@ const ModalActions: React.FC<ModalActionsProps> = ({
                 Cancelar
             </Button>
             <Button
-                type='button'
+                type='submit'
                 $variant='flat'
                 disabled={isLoading}
                 onClick={onConfirm}

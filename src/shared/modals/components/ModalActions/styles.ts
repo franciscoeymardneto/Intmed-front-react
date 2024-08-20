@@ -8,7 +8,7 @@ export const Container = styled.div`
   bottom: 10px;
   right: 16px;
   width: inherit;
-  /* left: 0; */
+  max-width: 350px;
   margin: 0 auto;
 
   button {
