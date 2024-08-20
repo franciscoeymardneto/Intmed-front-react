@@ -16,6 +16,7 @@ export const ConsultsListContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
     border-radius: 8px;
     box-shadow: 0px 1px 4px 0px ${({ theme }) => theme.colors.table_shadow};
+    overflow-x: auto;
     
    
 `

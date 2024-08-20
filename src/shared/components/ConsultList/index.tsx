@@ -1,12 +1,11 @@
 import { useConsult } from '../../../hooks/useConsult'
-import Button from '../Button/Button'
-import Icon from '../Icon'
+import RemoveConsultBtn from '../RemoveConsultBtn'
 import {
     Table
 } from './styles'
 const ConsultList: React.FC = (): JSX.Element => {
 
-    const { fetchConsults } = useConsult()
+    const fetchConsults = useConsult().fetchConsults()
     const consults = fetchConsults.data
 
     if (fetchConsults.isFetching) {
@@ -35,10 +34,7 @@ const ConsultList: React.FC = (): JSX.Element => {
                             <td>{item.date}</td>
                             <td>{item.hour}</td>
                             <td>
-                                <Button>
-                                    <Icon $iconName="close" $size='15px'/>
-                                    Desmarcar
-                                </Button>
+                                <RemoveConsultBtn consult={item}/>
                             </td>
                         </tr>
                     ))
