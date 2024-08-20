@@ -25,23 +25,18 @@ export const ConsultsListHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    & button {
-      max-width: 150px;
-      max-height: 24px;
-      padding: 16px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      & div {
-        margin: 0
-      }
-    }
+ 
     p {
       font-size: 1.5rem;
       font-weight: 700;
       color: ${({ theme }) => theme.colors.text};
       margin: 0;
+    }
+
+    @media (max-width: 400px) {
+        & p {
+          display: none;
+        }
     }
 `
 

@@ -16,7 +16,7 @@ const RemoveConsultBtn: React.FC<RemoveConsultBtnProps> = ({consult}): JSX.Eleme
     }
 
     async function handleRemoveConsult(){
-        await deleteConsult.mutate(consult.id, {
+        deleteConsult.mutate(consult.id, {
             onSuccess: () => {
                 toggleModal();
             }

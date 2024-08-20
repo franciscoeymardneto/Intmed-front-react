@@ -21,6 +21,12 @@ export const Container = styled.div`
         margin-left: 1rem;
         color: ${({theme}) => theme.colors.label_text};
     }
+
+    @media (min-width: ${({theme}) => theme.breakpoints.mobile}) {
+        & button {
+            margin: 0;
+        }
+    }
   }
 `;
 
