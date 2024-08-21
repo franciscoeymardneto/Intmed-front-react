@@ -4,6 +4,9 @@ Descrição: Teste prático Intemed Frontend
 
 Autor: Eymard Neto ( [linkedin](https://www.linkedin.com/in/eymard-neto-216254207) )
 
+# Link deploy na nuvem 
+- https://orange-bush-0d829451e.5.azurestaticapps.net
+
 # Tecnologias
 
   - React 18.3.1
@@ -41,7 +44,7 @@ Usuário: testintmed
 Senha: @Intmed2024#
 ```
 
-Coloque a url da [API backend](https://github.com/franciscoeymardneto/intmed-back.git) do projeto medicar.
+Caso prefira usar o seu deploy da API, Coloque a url da [API backend](https://github.com/franciscoeymardneto/intmed-back.git) do projeto medicar.
 
 
 ### 2.[Docker] Execute a aplicação usando Docker
