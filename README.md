@@ -5,7 +5,7 @@ Descrição: Teste prático Intemed Frontend
 Autor: Eymard Neto ( [linkedin](https://www.linkedin.com/in/eymard-neto-216254207) )
 
 # Link deploy na nuvem 
-- https://orange-bush-0d829451e.5.azurestaticapps.net
+- https://delightful-island-0202f5a1e.5.azurestaticapps.net
 
 # Tecnologias
 
