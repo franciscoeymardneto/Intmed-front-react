@@ -7,6 +7,8 @@ Autor: Eymard Neto ( [linkedin](https://www.linkedin.com/in/eymard-neto-21625420
 # Link deploy na nuvem 
 - https://delightful-island-0202f5a1e.5.azurestaticapps.net
 
+**OBS:** Como a api utilizada não utiliza https você precisa permitir conteúdo não seguro para o site. Basta ir nas permissões do site no seu navegador e ativar o contéudo não seguro.
+
 # Tecnologias
 
   - React 18.3.1
