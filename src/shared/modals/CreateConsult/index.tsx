@@ -9,10 +9,6 @@ import { useDoctor } from "../../../hooks/useDoctor";
 import { useSchedule } from "../../../hooks/useSchedule";
 import Select from "../../components/Select";
 import { useConsult } from "../../../hooks/useConsult";
-import { UseQueryResult } from "react-query";
-import { Doctor } from "../../../core/models/doctor";
-import { ApiError } from "../../../core/errors/api-error";
-import { Schedule } from "../../../core/models/schedule";
 
 type SelectOption = number | null
 type ConsultFormData = {
