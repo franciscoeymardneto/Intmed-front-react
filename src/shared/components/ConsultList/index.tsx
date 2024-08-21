@@ -1,4 +1,5 @@
 import { useConsult } from '../../../hooks/useConsult'
+import LoadingComponent from '../Loading'
 import RemoveConsultBtn from '../RemoveConsultBtn'
 import {
     Table
@@ -10,7 +11,7 @@ const ConsultList: React.FC = (): JSX.Element => {
 
     if (fetchConsults.isFetching) {
         return (
-            <div>Carregando...</div>
+            <LoadingComponent/>
         )
     }
     return (
