@@ -60,7 +60,6 @@ docker compose up --build
 Na raiz do projeto execute o comando para instalar as dependências:
 
 ```bash
-cd ..
 npm install
 ```
 
