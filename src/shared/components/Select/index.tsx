@@ -7,7 +7,7 @@ import { SelectStyles, SelectWrapper } from './styles';
 import Label from '../Label';
 import { Controller } from 'react-hook-form';
 
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
+const Select = React.forwardRef<HTMLDivElement, SelectProps>(({
     $hasError,
     options,
     errorMessage,
@@ -18,8 +18,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
     disabled,
     isLoading,
 
-}) => (
-        <SelectWrapper>
+}, ref) => (
+        <SelectWrapper ref={ref}>
             <Label id={name}>{label}</Label>
             <Controller
                 name={name}

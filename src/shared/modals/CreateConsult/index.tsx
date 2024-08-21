@@ -69,14 +69,17 @@ const CreateConsultModal: React.FC<CreateConsultModalProps> = ({
             horario: `${data.hour}`
         }, {
             onSuccess: () => {
-                reset()
-                toggleModal()
+                HandleCancel()
             }
         })
     }
 
     function HandleCancel() {
         reset()
+        setSelectedDoc(null)
+        setSelectedSched(null)
+        setSelectedSpec(null)
+        setSelectedHour(null)
         toggleModal()
     }
 

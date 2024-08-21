@@ -16,7 +16,7 @@ export const SelectStyles = ($hasError: boolean, theme: DefaultTheme): StylesCon
         cursor: state.isDisabled ? 'not-allowed' : 'pointer',
         border: `1px solid ${$hasError ? theme.colors.danger : theme.colors.border}`,
         borderRadius: '5px',
-        backgroundColor: 'transparent',
+        backgroundColor: state.isDisabled ? theme.colors.table_stripe : 'transparent',
         boxSizing: 'border-box',
         opacity: state.isDisabled ? 0.5 : 1,
         boxShadow: `0 0 0 1px ${theme.colors.border}`,
