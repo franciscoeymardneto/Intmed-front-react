@@ -9,6 +9,10 @@ import { useDoctor } from "../../../hooks/useDoctor";
 import { useSchedule } from "../../../hooks/useSchedule";
 import Select from "../../components/Select";
 import { useConsult } from "../../../hooks/useConsult";
+import { UseQueryResult } from "react-query";
+import { Doctor } from "../../../core/models/doctor";
+import { ApiError } from "../../../core/errors/api-error";
+import { Schedule } from "../../../core/models/schedule";
 
 type SelectOption = number | null
 type ConsultFormData = {
@@ -33,31 +37,35 @@ const CreateConsultModal: React.FC<CreateConsultModalProps> = ({
         formState: { errors },
     } = useForm<ConsultFormData>();
 
+    const specialities = useSpeciality().fetchSpeciality;
+    const createConsult = useConsult().createConsult()
+    const {fetchDoctor} = useDoctor()
+    const {fetchSchedule} = useSchedule()
+
     const [selectedSpec, setSelectedSpec] = useState<SelectOption>(null)
     const [selectedDoc, setSelectedDoc] = useState<SelectOption>(null)
     const [selectedSched, setSelectedSched] = useState<SelectOption>(null)
     const [selectedHour, setSelectedHour] = useState<string | null>(null)
     const [availableHours, setAvailableHours] = useState<string[]>([])
 
-    const [doctors, setDoctors] = useState(
-        useDoctor({
-            specialityId: selectedSpec || undefined
-        }).fetchDoctor
-    )
-    const [schedules, setSchedules] = useState(
-        useSchedule({
-            doctorId: selectedDoc || undefined
-        }).fetchSchedule
-    )
+    const doctors = fetchDoctor({
+        specialityId: selectedSpec || undefined
+    })
+    const schedules = fetchSchedule({
+        doctorId: selectedDoc || undefined
+    })
 
     useEffect(() => {
-        if (selectedSpec && !doctors.isFetching) {
-           doctors.refetch()
+        if (selectedSpec) {
+            doctors.refetch()
         }
-    },[selectedSpec])
+    }, [selectedSpec])
 
-    const specialities = useSpeciality().fetchSpeciality;
-    const createConsult = useConsult().createConsult()
+    useEffect(() => {
+        if (selectedDoc) {
+            schedules.refetch()
+        }
+    }, [selectedDoc])
 
     function onSubmit(data: ConsultFormData) {
         createConsult.mutate({
@@ -77,17 +85,19 @@ const CreateConsultModal: React.FC<CreateConsultModalProps> = ({
 
     function handleSelectSpec(value: SelectOption) {
         setSelectedSpec(value)
+        setSelectedDoc(null)
+        setSelectedSched(null)
         resetField('doctor')
         resetField('schedule')
         resetField('hour')
-        
+
     }
 
     function handleSelectDoc(value: SelectOption) {
         setSelectedDoc(value)
+        setSelectedSched(null)
         resetField('schedule')
         resetField('hour')
-
     }
 
     function handleSelectSched(value: number | null) {

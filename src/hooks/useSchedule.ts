@@ -9,16 +9,16 @@ import { Schedule } from '../core/models/schedule';
 type UseScheduleParams = {
     doctorId: number | undefined
 }
-export const useSchedule = ({
-    doctorId
-}: UseScheduleParams) => {
+export const useSchedule = () => {
     const QueryConsultKey = 'Schedule_QUERY'
     const pushToast = useToastStack()
     const authContext = useAuth()
     const httpService = new HttpService(authContext)
     const scheduleService = new ScheduleService(httpService);
 
-    const fetchSchedule = useQuery<unknown, ApiError, Schedule[]>({
+    const fetchSchedule = ({
+        doctorId
+    }: UseScheduleParams) => useQuery<unknown, ApiError, Schedule[]>({
         enabled: !!doctorId,
         queryKey: [QueryConsultKey],
         queryFn: ({ signal }) => {

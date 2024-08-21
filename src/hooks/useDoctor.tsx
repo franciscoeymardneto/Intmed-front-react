@@ -9,16 +9,16 @@ import { Doctor } from '../core/models/doctor';
 type UseDoctorParams = {
     specialityId?: number
 }
-export const useDoctor = ({
-    specialityId
-}: UseDoctorParams) => {
+export const useDoctor = () => {
     const QueryConsultKey = 'DOCTOR_QUERY'
     const pushToast = useToastStack()
     const authContext = useAuth()
     const httpService = new HttpService(authContext)
     const doctorService = new DoctorService(httpService);
 
-    const fetchDoctor = useQuery<unknown, ApiError, Doctor[]>({
+    const fetchDoctor = ({
+        specialityId
+    }: UseDoctorParams) => useQuery<unknown, ApiError, Doctor[]>({
         enabled: !!specialityId,
         queryKey: [QueryConsultKey],
         queryFn: ({ signal }) => {
