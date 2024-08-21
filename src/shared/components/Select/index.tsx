@@ -7,7 +7,7 @@ import { SelectStyles, SelectWrapper } from './styles';
 import Label from '../Label';
 import { Controller } from 'react-hook-form';
 
-const Select: React.FC<SelectProps> = ({
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
     $hasError,
     options,
     errorMessage,
@@ -17,10 +17,8 @@ const Select: React.FC<SelectProps> = ({
     control,
     disabled,
     isLoading,
-    
-}) => {
 
-    return (
+}) => (
         <SelectWrapper>
             <Label id={name}>{label}</Label>
             <Controller
@@ -38,7 +36,7 @@ const Select: React.FC<SelectProps> = ({
                         onChange={(event) => {
                             field.onChange((event as OptionType)?.value || undefined)
                         }}
-                  
+
                         styles={SelectStyles($hasError, useTheme())}
                     />
 
@@ -48,10 +46,5 @@ const Select: React.FC<SelectProps> = ({
             <ErrorSpan hidden={!errorMessage}>{errorMessage}</ErrorSpan>
         </SelectWrapper>
     )
-
-
-
-
-}
-
+)
 export default Select
