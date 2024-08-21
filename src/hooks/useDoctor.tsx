@@ -7,7 +7,7 @@ import { useToastStack } from '../contexts/ToastContext';
 import { Doctor } from '../core/models/doctor';
 
 type UseDoctorParams = {
-    specialityId: number
+    specialityId?: number
 }
 export const useDoctor = ({
     specialityId
@@ -23,7 +23,7 @@ export const useDoctor = ({
         queryKey: [QueryConsultKey],
         queryFn: ({ signal }) => {
             const source = HttpService.cancelToken()
-            const promise = doctorService.list(specialityId)
+            const promise = doctorService.list(specialityId as number)
             signal?.addEventListener('abort', () => source.cancel())
             return promise
         },

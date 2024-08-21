@@ -7,7 +7,7 @@ import { useToastStack } from '../contexts/ToastContext';
 import { Schedule } from '../core/models/schedule';
 
 type UseScheduleParams = {
-    doctorId: number
+    doctorId: number | undefined
 }
 export const useSchedule = ({
     doctorId
@@ -23,7 +23,7 @@ export const useSchedule = ({
         queryKey: [QueryConsultKey],
         queryFn: ({ signal }) => {
             const source = HttpService.cancelToken()
-            const promise = scheduleService.list(doctorId)
+            const promise = scheduleService.list(doctorId as number)
             signal?.addEventListener('abort', () => source.cancel())
             return promise
         },

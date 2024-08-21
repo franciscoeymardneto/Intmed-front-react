@@ -1,5 +1,6 @@
 export type ModalActionsProps = {
     isLoading?: boolean
-    onConfirm: () => void
+    onConfirm?: () => void
     onCancel: () => void
+    disabledConfirm?: boolean
 }

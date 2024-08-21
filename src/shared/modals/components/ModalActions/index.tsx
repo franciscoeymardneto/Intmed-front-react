@@ -6,10 +6,11 @@ import { Container } from "./styles";
 const ModalActions: React.FC<ModalActionsProps> = ({
     onCancel,
     onConfirm,
-    isLoading
+    isLoading,
+    disabledConfirm
 }): JSX.Element => {
     return (
-        <Container>
+        <Container id="modal-actions-container">
             <Button
                 type='button'
                 disabled={isLoading}
@@ -20,7 +21,7 @@ const ModalActions: React.FC<ModalActionsProps> = ({
             <Button
                 type='submit'
                 $variant='flat'
-                disabled={isLoading}
+                disabled={isLoading || disabledConfirm}
                 onClick={onConfirm}
             >
                 Desmarcar

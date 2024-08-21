@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectComp from 'react-select';
 import { useTheme } from 'styled-components';
-import { SelectProps } from './types';
+import { OptionType, SelectProps } from './types';
 import ErrorSpan from '../ErrorSpan';
 import { SelectStyles, SelectWrapper } from './styles';
 import Label from '../Label';
@@ -14,7 +14,10 @@ const Select: React.FC<SelectProps> = ({
     label,
     name,
     placeholder,
-    control
+    control,
+    disabled,
+    isLoading,
+    
 }) => {
 
     return (
@@ -28,7 +31,14 @@ const Select: React.FC<SelectProps> = ({
                         {...field}
                         options={options}
                         isClearable
+                        value={field.value ? options.find(op => op.key == field.value) : null}
+                        isDisabled={disabled}
                         placeholder={placeholder}
+                        isLoading={isLoading}
+                        onChange={(event) => {
+                            field.onChange((event as OptionType)?.value || undefined)
+                        }}
+                  
                         styles={SelectStyles($hasError, useTheme())}
                     />
 

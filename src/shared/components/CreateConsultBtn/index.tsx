@@ -14,13 +14,6 @@ const CreateConsultBtn: React.FC = (): JSX.Element => {
         setIsModalOpen(!isModalOpen)
     }
 
-    async function handleCreateConsult() {
-        // createConsult.mutate(consult.id, {
-        //     onSuccess: () => {
-        //         toggleModal();
-        //     }
-        // })
-    }
     return (
         <Container>
             <Button
@@ -35,7 +28,6 @@ const CreateConsultBtn: React.FC = (): JSX.Element => {
             <CreateConsultModal
                 isOpen={isModalOpen}
                 isLoading={createConsult.isLoading}
-                onConfirm={handleCreateConsult}
                 toggleModal={toggleModal}
             />
         </Container>
