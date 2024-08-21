@@ -18,7 +18,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(({
     disabled,
     isLoading,
 
-}, ref) => (
+}) => (
         <SelectWrapper>
             <Label id={name}>{label}</Label>
             <Controller
