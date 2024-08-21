@@ -15,6 +15,9 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+env:
+  VITE_BASE_URL: http://109.199.100.71:8000
+
 - script: |
     npm install
     npm run build
