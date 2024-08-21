@@ -24,7 +24,7 @@ const ModalActions: React.FC<ModalActionsProps> = ({
                 disabled={isLoading || disabledConfirm}
                 onClick={onConfirm}
             >
-                Desmarcar
+                Confirmar
             </Button>
         </Container>
     )

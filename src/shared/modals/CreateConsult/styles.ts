@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const ModalContainer = styled.div`
   width: 80%;
+  max-height: 90%;
+  overflow-y: auto;
   max-width: 500px;
   min-height: 20rem;
   border-radius: 12px;

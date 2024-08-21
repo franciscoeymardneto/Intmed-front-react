@@ -73,6 +73,7 @@ const CreateConsultModal: React.FC<CreateConsultModalProps> = ({
             horario: `${data.hour}`
         }, {
             onSuccess: () => {
+                reset()
                 toggleModal()
             }
         })
@@ -170,7 +171,6 @@ const CreateConsultModal: React.FC<CreateConsultModalProps> = ({
                             onChange: (event) => {
                                 handleSelectSched(event.target.value)
                             },
-                            value: selectedSched
                         })}
                         options={schedules.data?.map(sched => ({
                             key: `${sched.id}`,
@@ -205,7 +205,7 @@ const CreateConsultModal: React.FC<CreateConsultModalProps> = ({
 
 
                     <ModalActions
-                        isLoading={isLoading}
+                        isLoading={isLoading || createConsult.isLoading}
                         onCancel={HandleCancel}
                         disabledConfirm={!selectedHour}
                     />
